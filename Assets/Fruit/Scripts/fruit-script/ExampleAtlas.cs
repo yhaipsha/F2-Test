@@ -8,7 +8,7 @@ public class ExampleAtlas : MonoBehaviour
 	public event replaceSprite EventReplace;
 	
 	public GameObject nextLayer;
-	private string[] atlases;
+	private string[] atlases=null;
 	int index = 0;
 	int count=0;
 	bool clearance=false;
@@ -39,12 +39,7 @@ public class ExampleAtlas : MonoBehaviour
 				case 1:
 					index=0;
 					clearance=true;
-					PlayerPrefs.SetInt("result",1);
-//					toPanelWin(1);
-					break;
-				case 2:
-					break;
-				case 3:
+					PlayerPrefs.SetInt("result",Globe.errorCount);
 					break;
 				}
 			}

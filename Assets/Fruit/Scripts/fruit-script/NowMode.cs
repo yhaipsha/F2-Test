@@ -27,8 +27,8 @@ public class NowMode : MonoBehaviour {
 //		PlayerPrefs.Save();
 //        itemCardLayer();
 //		Application.LoadLevelAdditive("Example - FruitLevel");
-//		Application.LoadLevel("Game");
-		Application.LoadLevel("Level");
+		Application.LoadLevel("Game");
+//		Application.LoadLevel("Level");
 	}
 	
 	/*

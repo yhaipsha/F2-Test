@@ -4,28 +4,39 @@ using System.Linq;
 
 public class GameWinLayer : MonoBehaviour
 {
-
+	private int _nowPlay = 1;
+	private int _nowMode = 1;
 	// Use this for initialization
 	void Start ()
 	{
-		init (PlayerPrefs.GetInt ("result"));
+//		_nowMode=PlayerPrefs.GetInt("NowMode");
+//		_nowPlay=PlayerPrefs.GetInt("NowPlay");
+//		init (PlayerPrefs.GetInt ("result"));
 	}
 	
 	public void init (int result)
 	{
-		switch (result) {
-		case 0:
+//		switch (result) {
+//		case 0:
+//			showResultSprite (false, "p-failed");
+//			break;
+//		case 1:
+//			showResultSprite (true, "p-win");
+//			break;
+//		}
+		if (result<=0) {
 			showResultSprite (false, "p-failed");
-			break;
-		case 1:
-			showResultSprite (true, "p-win");
-			break;
 		}
+		else		{
+			showResultSprite (true, "p-win");
+		}
+		
 		
 		//清除计数器记录内容
 		Globe.errorCount = 3;
 		Globe.sameSize.Clear ();
-		
+		PlayerPrefs.SetInt(Globe.Compare (_nowMode) + _nowPlay,result);
+		PlayerPrefs.DeleteKey("result");
 
 		
 		/*
@@ -60,20 +71,23 @@ public class GameWinLayer : MonoBehaviour
                 );
 			}
 			
-			PlayerPrefs.SetInt (lastlevelName, Globe.errorCount == 0 ? 1 : Globe.errorCount);
-			switch (PlayerPrefs.GetInt ("NowMode")) {
-			case 1:
-				break;
-			case 2:
-				break;
+			Transform transStar = transform.FindChild("Show").FindChild("Stars");
+			
+			for (int i = 0; i < transStar.GetChildCount(); i++) {
+				transStar.GetChild (i).gameObject.SetActive (false);
 			}
+			for (int i = 0; i < PlayerPrefs.GetInt ("result"); i++) {
+				transStar.GetChild (i).gameObject.SetActive (true);
+			}		
 			
 		} else {
 			int score = PlayerPrefs.GetInt (lastlevelName);
 			PlayerPrefs.SetInt (lastlevelName, score > 0 ? score : 0);
 			print ("The current level:"+PlayerPrefs.GetInt (lastlevelName));
 		}
-
+		
+		PlayerPrefs.SetInt (lastlevelName, PlayerPrefs.GetInt("result"));
+		
 //		Globe.sameSize.Clear();
 //		Globe.differentSize.Clear();
 

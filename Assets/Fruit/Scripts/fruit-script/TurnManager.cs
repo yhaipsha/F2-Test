@@ -18,22 +18,27 @@ public class TurnManager : MonoBehaviour
 	ExampleAtlas examObj;
 	float backTime;//用于计数的变量
 	
-	private bool autoReverse = false;
-	int clickCount = 0;
-	private bool isBegin = false;
-	Quaternion qua;
-	Quaternion quaBg;
-	UISprite sprite;
-	UISprite spriteBg;
-	bool beginTurn = false;
-	bool punish = false;
-	TurnAnimate ta;
+//	private bool autoReverse = false;
+//	int clickCount = 0;
+//	private bool isBegin = false;
+//	Quaternion qua;
+//	Quaternion quaBg;
+//	UISprite sprite;
+//	UISprite spriteBg;
+//	bool beginTurn = false;
+//	bool punish = false;
+//	TurnAnimate ta;
 	
 	bool clearance=false;
-	void toPanelWin (int result)
+	void setResult(int result)
+	{
+		PlayerPrefs.SetInt("result",result);
+		clearance=true;
+	}
+	void toPanelWin ()
 	{
 		if (PlayerPrefs.GetInt ("turn_go_over") == 1 && clearance) {	
-			PlayerPrefs.SetInt("result",result);
+//			PlayerPrefs.SetInt("result",result);
 			PlayerPrefs.DeleteKey("turn_go_over");
 			Application.LoadLevel("GameUpshot");			
 		}
@@ -48,8 +53,10 @@ public class TurnManager : MonoBehaviour
 			Globe.tmpString = null;
 			Globe.punish = false;
 		}
-		if (transform.GetChildCount () <= 2) {
-			toPanelWin (1);
+		if (transform.GetChildCount () <= 2) {		
+			Globe.tmpString = null;
+			Globe.punish = false;
+			setResult (1);
 		}
 		
 //		switch (PlayerPrefs.GetInt("NowMode")) {
@@ -119,9 +126,11 @@ public class TurnManager : MonoBehaviour
 				PlayerPrefs.DeleteKey ("cardReady");
 			} else if (backTime <= 0.0f) {
 //				examObj.toPanelWin (0);
-				toPanelWin (0);
+				setResult (0);
 			}
 		}
+		
+		toPanelWin ();
 		
 		//-------------提交提示图片
 //		if (examObj != null && PlayerPrefs.GetInt ("turn_go_over") == 1) {
@@ -139,7 +148,7 @@ public class TurnManager : MonoBehaviour
 	{	    
 		if (transExample != null) {
 			transExample.GetComponent<UISlicedSprite> ().enabled = true;
-			transExample.animation.Play ("Center_UpRight");
+//				transExample.animation.Play ("Center_UpRight");
 		}
 	}
 	
@@ -171,9 +180,10 @@ public class TurnManager : MonoBehaviour
 			if (Globe.errorCount <= 0) {
 				
 //				examObj.toPanelWin (0);
-				toPanelWin (0);
+				setResult (0);
 			}
 		}
+		
 	}
 
 	void mode2 (string name)
@@ -192,7 +202,7 @@ public class TurnManager : MonoBehaviour
 					Globe.errorCount--;
 					UpdateTime (Globe.errorCount);
 					if (Globe.errorCount <= 0) {
-						toPanelWin (0);
+						setResult (0);
 					}
 				}
 				
@@ -276,7 +286,7 @@ public class TurnManager : MonoBehaviour
 			backTime = 30;//假设从100开始倒数，这个数值你可以自行修改呀		
 		}		
 	}
-
+	/*
 	bool IsNotCorrect2 (float euler)
 	{
 //		print (euler);
@@ -373,5 +383,5 @@ public class TurnManager : MonoBehaviour
 
 		}
 	}
-	
+	*/
 }

@@ -78,12 +78,35 @@
      <Compile Include="Assets\NGUI\Scripts\Editor\UITexturePacker.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UITiledSpriteInspector.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\UIWidgetInspector.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\AboutWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\ContextToolWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmActionWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmComponentInspector.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmEditorHelpers.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmEditorWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmErrorWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmEventsWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmGlobalsWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmLogWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmSelectorWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmStateWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmTemplate.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\FsmTemplateWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerBugReportWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerCustomActionWizard.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerGUIInspector.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerGlobalsInspector.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerMainMenu.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\PlayMakerWelcomeWindow.cs" />
+     <Compile Include="Assets\PlayMaker\Editor\ReportWindow.cs" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Depth Cutout.shader" />
      <None Include="Assets\NGUI\Examples\Models\Orc\Orc Skin.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo20.txt" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo14.txt" />
+     <None Include="Assets\PlayMakerReadme.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Masked Colored.shader" />
      <None Include="Assets\NGUI\Examples\Atlases\Wooden\Arimo18.txt" />
+     <None Include="Assets\iTween\ReadMe!\ReadMe!.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (Packed) (AlphaClip) .shader" />
      <None Include="Assets\NGUI\Examples\Atlases\SciFi\SciFi Font - Header.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Premultiplied Colored (AlphaClip).shader" />
@@ -110,9 +133,14 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
      <None Include="Assets\Fruit\Data\FruitJson.txt" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
-     <None Include="Assets\Fruit\Scripts\Game\sheep.xml" />
  <Reference Include="\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs">
  <HintPath>\Applications\Unity\Unity.app\Contents\Frameworks\Managed\UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\PlayMaker\Editor\PlayMakerEditor">
+ <HintPath>Assets\PlayMaker\Editor\PlayMakerEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="Assets\PlayMaker\PlayMaker">
+ <HintPath>Assets\PlayMaker\PlayMaker.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

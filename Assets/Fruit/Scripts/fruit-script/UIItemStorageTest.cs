@@ -52,9 +52,7 @@ public class UIItemStorageTest : MonoBehaviour
 	/// </summary>
 
 	public int padding = 10;
-	
-	public Transform templateSprite;	
-	List<InvGameItem> mItems = new List<InvGameItem>();
+		
 
 
 	void Start ()

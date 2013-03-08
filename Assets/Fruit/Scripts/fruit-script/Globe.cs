@@ -9,6 +9,13 @@ public class HelpFruit
 	public  int list_offset;
 	public  string list_go_name;
 }
+[System.Serializable]
+public class FruitBrand
+{
+	public int errorCount=0;
+	public int cardSize=0;
+	public int cardFindSize=0;
+}
 
 public class Globe
 {
@@ -45,6 +52,7 @@ public class Globe
 	public static List<string> cards;		//卡牌
 	public static int findCount;
 	public static int errorCount=0;
+	public static int cardSize=0;
 	public static List<GameObject> tempGameObject;
 	
 	//public static List<int>sameSize ; //=new List<int>()

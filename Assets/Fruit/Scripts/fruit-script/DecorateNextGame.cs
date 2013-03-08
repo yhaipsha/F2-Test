@@ -21,10 +21,10 @@ public class DecorateNextGame : MonoBehaviour
 	{
 		//next level
 		int currentMode = PlayerPrefs.GetInt ("NowMode");
-		
-		print ("current level is :" + PlayerPrefs.GetInt ("NowPlay"));
-		PlayerPrefs.SetInt ("NowPlay", PlayerPrefs.GetInt ("NowPlay") + 1);
-		print ("next level is :" + (PlayerPrefs.GetInt ("NowPlay") + 1));
+		int _nowPlay = PlayerPrefs.GetInt ("NowPlay");
+		print ("current level is :" + _nowPlay);
+		PlayerPrefs.SetInt ("NowPlay", _nowPlay + 1);
+		print ("next level is :" + (_nowPlay + 1));
         
 		Application.LoadLevel("Game2");
 		

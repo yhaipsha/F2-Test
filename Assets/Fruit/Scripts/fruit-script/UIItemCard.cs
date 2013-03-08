@@ -17,7 +17,6 @@ public class UIItemCard : MonoBehaviour
      * 
      * 
      * ***/
-    bool _isBounds = false;
     bool _firstSwitch = true;
     public string[] atlasSpriteNames;
 
@@ -55,7 +54,7 @@ public class UIItemCard : MonoBehaviour
 
     GameObject AddGameObject(string spriteName, int number)
     {
-		print(spriteName);
+//		print(spriteName);
         GameObject tempObj = (GameObject)Instantiate(template);
         tempObj.transform.parent = transform;
         tempObj.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -76,7 +75,7 @@ public class UIItemCard : MonoBehaviour
         {
 			#region 添加脚本 UIButtonTween
 
-			/*
+			
             bt = tempObj.AddComponent<UIButtonTween>();
             bt.tweenTarget = transform.parent.parent.gameObject;
             bt.includeChildren = true;
@@ -85,8 +84,7 @@ public class UIItemCard : MonoBehaviour
             bt.disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterForward;
             bt.trigger = AnimationOrTween.Trigger.OnClick;
             bt.playDirection = AnimationOrTween.Direction.Forward;
-            bt.eventReceiver = target.gameObject;
-            bt.callWhenFinished = "OnLayer";
+            
 
             bt = tempObj.AddComponent<UIButtonTween>();
             bt.tweenTarget = target.gameObject;
@@ -96,7 +94,9 @@ public class UIItemCard : MonoBehaviour
             bt.disableWhenFinished = AnimationOrTween.DisableCondition.DisableAfterReverse;
             bt.trigger = AnimationOrTween.Trigger.OnClick;
             bt.playDirection = AnimationOrTween.Direction.Forward;
-			*/
+			bt.eventReceiver = target.gameObject;
+            bt.callWhenFinished = "OnLayer";
+			/**/
 			#endregion
 			
             tempObj.AddComponent("SelectedLevel");

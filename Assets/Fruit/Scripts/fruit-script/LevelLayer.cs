@@ -28,7 +28,7 @@ public class LevelLayer : MonoBehaviour
 	{
 		int maxItem = 0;
 		int pages = 1;
-		print (levelOffsetGo.name);
+//		print (levelOffsetGo.name);
 		switch (PlayerPrefs.GetInt ("NowMode")) {
 		case 1:
 			maxItem = 50;

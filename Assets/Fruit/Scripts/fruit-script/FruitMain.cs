@@ -4,16 +4,20 @@ using LitJson;
 
 public class FruitMain : MonoBehaviour
 {
-	IEnumerator Start ()
+	/*
+	void Start()
 	{
-		if (Globe.askbox == null || Globe.askbox2 == null) {					
-			WWW www = new WWW (Globe.assetURL);
-			yield return www;
-			SystemData sd = www.assetBundle.mainAsset as SystemData;
+		if (Globe.askbox == null || Globe.askbox2 == null) {		
+			print(Globe.assetURL);
+			
+			AssetBundle ab = AssetBundle.CreateFromFile(Globe.assetURL.Replace("file://",""));
+			
+			SystemData sd = ab.mainAsset as SystemData;
 			Globe.askbox = new System.Collections.Generic.List<string[]> ();
 			Globe.askbox2 = new System.Collections.Generic.List<string[]> ();
 			Globe.askbox3 = new System.Collections.Generic.List<string[]> ();
 			
+			#region 数据存放本地
 			for (int i = 0; i < sd.arrInt.Count; i++) {
 				PlayerPrefs.SetString ("first" + i, sd.arrInt [i]);
 			}
@@ -23,31 +27,71 @@ public class FruitMain : MonoBehaviour
 			for (int i = 0; i < sd.thirdInt.Count; i++) {
 				PlayerPrefs.SetString ("third" + i, sd.thirdInt [i]);
 			}
+			#endregion
+			#region 数据存放内存
+			
 //			foreach (string item in sd.arrInt){
-////				Globe.askbox.Add (item.Split (','));		
-//				PlayerPrefs.SetString("first",item);
+//				Globe.askbox.Add (item.Split (','));		
 //			}
 //			foreach (string item in sd.secondInt) 			{	
-////				Globe.askbox2.Add (item.Split (','));			
-//				PlayerPrefs.SetString("second",item);
+//				Globe.askbox2.Add (item.Split (','));			
 //			}
 //			foreach (string item in sd.thirdInt) {	
-////			Globe.askbox3.Add (item.Split (','));			
-//				PlayerPrefs.SetString ("third", item);
+//				Globe.askbox3.Add (item.Split (','));			
 ////				print (item);
 //			}
+			#endregion
 //			PlayerPrefs.SetInt ("loading", 1);
 			
-			print ("loading... is over !" + Globe.askbox.Count);
-//			print ("loading... level2 = " + Globe.askbox2.Count);
-//			print ("loading... level3 = " + Globe.askbox3.Count);
+			print ("loading... is over !level1=" + Globe.askbox.Count+";level2="+ Globe.askbox2.Count+";level3="+Globe.askbox3.Count);
 		}
 //		PlayerPrefs.DeleteAll();
-		StartCoroutine ("GetTwitterUpdate");     
+//		StartCoroutine ("GetTwitterUpdate");     
 //		PlayerPrefs.DeleteKey("GameWindow");
+		
+	}*/
 
+	IEnumerator Start ()
+	{
+		if (Globe.askbox == null || Globe.askbox2 == null) {		
+
+			WWW www = new WWW (Globe.assetURL);
+			yield return www;
+			SystemData sd = www.assetBundle.mainAsset as SystemData;
+			Globe.askbox = new System.Collections.Generic.List<string[]> ();
+			Globe.askbox2 = new System.Collections.Generic.List<string[]> ();
+			Globe.askbox3 = new System.Collections.Generic.List<string[]> ();
+			
+			#region 数据存放本地
+//			for (int i = 0; i < sd.arrInt.Count; i++) {
+//				PlayerPrefs.SetString ("first" + i, sd.arrInt [i]);
+//			}
+//			for (int i = 0; i < sd.secondInt.Count; i++) {
+//				PlayerPrefs.SetString ("second" + i, sd.secondInt [i]);
+//			}
+//			for (int i = 0; i < sd.thirdInt.Count; i++) {
+//				PlayerPrefs.SetString ("third" + i, sd.thirdInt [i]);
+//			}
+			#endregion
+			#region 数据存放内存
+			
+			foreach (string item in sd.arrInt){
+				Globe.askbox.Add (item.Split (','));		
+			}
+			foreach (string item in sd.secondInt) 			{	
+				Globe.askbox2.Add (item.Split (','));			
+			}
+			foreach (string item in sd.thirdInt) {	
+			Globe.askbox3.Add (item.Split (','));			
+//				print (item);
+			}
+			#endregion
+//			PlayerPrefs.SetInt ("loading", 1);
+			
+			print ("loading... is over !level1=" + Globe.askbox.Count+";level2="+ Globe.askbox2.Count+";level3="+Globe.askbox3.Count);
+		}
 	}
-
+		/**/
 	IEnumerator GetTwitterUpdate ()//IEnumerator
 	{
 		WWW www = new WWW (Globe.jsonURL);
