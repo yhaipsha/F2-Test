@@ -4,13 +4,31 @@ using LitJson;
 
 public class FruitMain : MonoBehaviour
 {
-	/*
-	void Start()
+	
+	/*void Start()
 	{
+	//AssetDatabase
+			AssetDatabase.ImportAsset("Assets/Textures/texture.jpg", ImportAssetOptions.Default);
+	
+	
 		if (Globe.askbox == null || Globe.askbox2 == null) {		
 			print(Globe.assetURL);
+			AssetBundle ab = AssetBundle.CreateFromFile(@"Fruit\Scenes\Game.unity3d");//Scenes\Models\Tipi.unity3d
+			;print (ab);
+			if(ab!=null)
+		    {
+			     if(ab.mainAsset  !=null)
+			     {
+					
+			      //load resouce into the assetbundle of wwwObject
+//			      ab.LoadAsync("Terrain1", typeof(GameObject));
+//			      
+//			      //创建地形实例
+//			      if(Instantiate(wwwObj.assetBundle.mainAsset ) != null) 
+//			       Flag = 1;
+			     }
+		    }
 			
-			AssetBundle ab = AssetBundle.CreateFromFile(Globe.assetURL.Replace("file://",""));
 			
 			SystemData sd = ab.mainAsset as SystemData;
 			Globe.askbox = new System.Collections.Generic.List<string[]> ();
@@ -50,7 +68,7 @@ public class FruitMain : MonoBehaviour
 //		PlayerPrefs.DeleteKey("GameWindow");
 		
 	}*/
-
+	
 	IEnumerator Start ()
 	{
 		if (Globe.askbox == null || Globe.askbox2 == null) {		
@@ -78,16 +96,15 @@ public class FruitMain : MonoBehaviour
 			foreach (string item in sd.arrInt){
 				Globe.askbox.Add (item.Split (','));		
 			}
-			foreach (string item in sd.secondInt) 			{	
+			foreach (string item in sd.secondInt){	
 				Globe.askbox2.Add (item.Split (','));			
 			}
 			foreach (string item in sd.thirdInt) {	
-			Globe.askbox3.Add (item.Split (','));			
-//				print (item);
+				Globe.askbox3.Add (item.Split (','));
 			}
 			#endregion
-//			PlayerPrefs.SetInt ("loading", 1);
-			
+//			PlayerPrefs.DeleteAll();
+//			StartCoroutine ("GetTwitterUpdate");     
 			print ("loading... is over !level1=" + Globe.askbox.Count+";level2="+ Globe.askbox2.Count+";level3="+Globe.askbox3.Count);
 		}
 	}
@@ -127,6 +144,33 @@ public class FruitMain : MonoBehaviour
 			}
 		}
 	}
+	
+	public IEnumerator getLevels(string modeAndLevel)
+	{
+		WWW www = new WWW (Globe.levelURL);
+		yield return www;
+		
+		print(modeAndLevel);
+		JsonData root = JsonMapper.ToObject (www.data);
+		string[] str = modeAndLevel.Split(',');print(root.ToJson());
+		JsonData lf = root ["level"];
+		print (lf ["first"].ToJson ());
+//		JsonData[] arr =JsonMapper.ToObject<JsonData[]> (lf ["first"].ToJson ());
+//		
+//		print (str[0] +str[1]+"------------------"+arr[int.Parse(str[1])-1]);
+//		PlayerPrefs.SetString (str[0] +str[1], arr[int.Parse(str[1])-1].ToString());
+		
+
+//		for (int i = 0; i < array.Length; i++) {
+//			if (lf [i].IsArray) {
+//				JsonData[] jarr = JsonMapper.ToObject<JsonData[]> (lf [i].ToJson ());
+//				for (int j = 1; j <= jarr.Length; j++) {
+//					PlayerPrefs.SetInt ("star-" + array [i] + j, (int)jarr [j - 1]);
+////					print (("star-" + array [i] + j) + "==" + (int)jarr [j-1]);
+//				}
+//			}
+//		}
+	}
 
 	public static void WriteJson (string path)
 	{
@@ -158,3 +202,4 @@ public class FruitMain : MonoBehaviour
 	}
 
 }
+

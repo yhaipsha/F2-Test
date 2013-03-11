@@ -20,7 +20,7 @@ public class GamePlayReset : MonoBehaviour {
 
         //µ±Ç°¹Ø¿¨
         int currentLevel = PlayerPrefs.GetInt("NowPlay") - 1;
-        gpl.initGameWindow();
+//        gpl.initGameWindow();
 
     }
 }

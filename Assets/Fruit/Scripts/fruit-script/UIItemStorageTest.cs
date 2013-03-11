@@ -1,64 +1,21 @@
-﻿//----------------------------------------------
-//            NGUI: Next-Gen UI kit
-// Copyright © 2011-2012 Tasharen Entertainment
-//----------------------------------------------
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
-
-/// <summary>
-/// Storage container that stores items.
-/// </summary>
 
 [AddComponentMenu("NGUI/Game/UI Item Storage Test")]
 public class UIItemStorageTest : MonoBehaviour
 {
-	/// <summary>
-	/// Maximum size of the container. Adding more items than this number will not work.
-	/// </summary>
-
-	/// <summary>
-	/// Maximum number of rows to create.
-	/// </summary>
-
 	public int maxRows = 4;
-
-	/// <summary>
-	/// Maximum number of columns to create.
-	/// </summary>
-
 	public int maxColumns = 4;
-
-	/// <summary>
-	/// Template used to create inventory icons.
-	/// </summary>
-
 	public GameObject template;
-
-	/// <summary>
-	/// Background widget to scale after the item slots have been created.
-	/// </summary>
-
 	public bool childrenAutoReverse = true;
-
-	/// <summary>
-	/// Spacing between icons.
-	/// </summary>
-
 	public int spacing = 128;
-
-	/// <summary>
-	/// Padding around the border.
-	/// </summary>
-
 	public int padding = 10;
 		
 
 
 	void Start ()
 	{		
-		//createTemp();
-		
+		//createTemp();		
 	}
 	GameObject addGameObject(string spriteName)
 	{
@@ -66,7 +23,7 @@ public class UIItemStorageTest : MonoBehaviour
 		tempObj.transform.parent = transform;
 		tempObj.transform.localScale = new Vector3 (1f, 1f, 1f);
 //		print ("in the test ="+spriteName);
-//		tempObj.GetComponent<TurnRight2>().autoReverse = childrenAutoReverse;
+//		tempObj.GetComponent<TurnRight2>().autoReverse = childrenAutoReverse; -level1;Sprite-box
 		
 		UISlicedSprite sprite = tempObj.transform.FindChild("Sprite-box").GetComponent<UISlicedSprite> ();			
 //		sprite.transform.rotation = Quaternion.Euler (0f, 180f, 0f);
@@ -111,7 +68,7 @@ public class UIItemStorageTest : MonoBehaviour
 	{
 		Debug.Log("3333");
 		
-		NGUITools.SetActive(gameObject,true);
+//		NGUITools.SetActive(gameObject,true);
 	}
 	public void  cleaner()
 	{

@@ -91,7 +91,7 @@ public class TurnManager : MonoBehaviour
 	}
 
 	void Update ()
-	{
+	{		
 		_mode = PlayerPrefs.GetInt ("NowMode");
 		if (initialized == 2 && _mode == 1) {			
 			examPlay ();	
@@ -148,7 +148,7 @@ public class TurnManager : MonoBehaviour
 	{	    
 		if (transExample != null) {
 			transExample.GetComponent<UISlicedSprite> ().enabled = true;
-//				transExample.animation.Play ("Center_UpRight");
+			transExample.animation.Play ("Center_UpRight");
 		}
 	}
 	

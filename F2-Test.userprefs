@@ -1,8 +1,15 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Fruit/Scripts/MOMO/Slide.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Fruit/Scripts/fruit-script/GameWinLayer.cs">
     <Files>
-      <File FileName="Assets/Fruit/Scripts/MOMO/Slide.cs" Line="1" Column="1" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/TurnManager.cs" Line="18" Column="23" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/UIItemCard.cs" Line="135" Column="40" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/UIItemStorageTest.cs" Line="1" Column="1" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/FruitMain.cs" Line="104" Column="1" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/GamePlayLayer.cs" Line="123" Column="5" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/NowMode.cs" Line="1" Column="1" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/SelectedLevel.cs" Line="91" Column="42" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/GameWinLayer.cs" Line="77" Column="37" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,14 +18,12 @@
             <Node name="Assets" expanded="True">
               <Node name="Fruit" expanded="True">
                 <Node name="Scripts" expanded="True">
-                  <Node name="fruit-script" expanded="True" />
-                  <Node name="MOMO" expanded="True">
-                    <Node name="Slide.cs" selected="True" />
+                  <Node name="fruit-script" expanded="True">
+                    <Node name="GameWinLayer.cs" selected="True" />
                   </Node>
+                  <Node name="LitJson" expanded="True" />
+                  <Node name="MOMO" expanded="True" />
                 </Node>
-              </Node>
-              <Node name="iTween" expanded="True">
-                <Node name="ReadMe!" expanded="True" />
               </Node>
               <Node name="NGUI" expanded="True">
                 <Node name="Examples" expanded="True">
@@ -37,7 +42,19 @@
               </Node>
             </Node>
           </Node>
-          <Node name="Assembly-CSharp-Editor" expanded="True" />
+          <Node name="Assembly-CSharp-Editor" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="NGUI" expanded="True">
+                <Node name="Examples" expanded="True">
+                  <Node name="Scripts" expanded="True">
+                    <Node name="InventorySystem" expanded="True">
+                      <Node name="Editor" expanded="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
         </State>
       </Pad>
       <Pad Id="ClassPad">

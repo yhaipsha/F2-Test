@@ -12,11 +12,6 @@ public class UIItemCard : MonoBehaviour
     public int spacing = 128;
     public int padding = 10;
 
-    /****
-     * 
-     * 
-     * 
-     * ***/
     bool _firstSwitch = true;
     public string[] atlasSpriteNames;
 
@@ -26,8 +21,6 @@ public class UIItemCard : MonoBehaviour
     /// </summary>
     void Start()
     {
-
-
     }
 
     public void initLevel()
@@ -37,9 +30,7 @@ public class UIItemCard : MonoBehaviour
 
         for (int _currentPage = 1; _currentPage <= pages; _currentPage++)
         {
-
             __endNum = rows * columns * (_currentPage + 1) + 1;
-
             if (maxItemCount < __endNum)
             {
                 __endNum = maxItemCount;
@@ -75,7 +66,7 @@ public class UIItemCard : MonoBehaviour
         {
 			#region 添加脚本 UIButtonTween
 
-			
+			/*
             bt = tempObj.AddComponent<UIButtonTween>();
             bt.tweenTarget = transform.parent.parent.gameObject;
             bt.includeChildren = true;
@@ -96,7 +87,7 @@ public class UIItemCard : MonoBehaviour
             bt.playDirection = AnimationOrTween.Direction.Forward;
 			bt.eventReceiver = target.gameObject;
             bt.callWhenFinished = "OnLayer";
-			/**/
+			*/
 			#endregion
 			
             tempObj.AddComponent("SelectedLevel");
@@ -141,11 +132,10 @@ public class UIItemCard : MonoBehaviour
                 for (int x = 0; x < columns; x++)
                 {
                     int _number = x + y * columns + _beginNumber + 1;
-                    string tmp = __modeHeader + _number;
+                    string tmp = "star-"+__modeHeader + _number;
 
                     if ((PlayerPrefs.GetInt(tmp) == 0) && (_firstSwitch == false))
                     {
-
                         //objGo = Other ("level1", template, _number + 1);
                         objGo = AddGameObject(atlasSpriteNames[1], _number);
                     }
@@ -172,20 +162,13 @@ public class UIItemCard : MonoBehaviour
                                 //objGo = Other ("level1-3", template, _number + 1);
                                 objGo = AddGameObject(atlasSpriteNames[4], _number);
                                 break;
-//                            default:
-//                                objGo = AddGameObject(atlasSpriteNames[0], _number);
-//                                break;
                         }
                     }
 
 
                     //GameObject go = NGUITools.AddChild (gameObject, objGo);
-
-
                     Transform t = objGo.transform;
                     t.localPosition = new Vector3((padding + (x + 0.5f) * spacing) + (_page - 1) * columns * spacing, -padding - (y + 0.5f) * spacing, 0f);
-
-
                     b.Encapsulate(new Vector3(padding * 2f + (x + 1) * spacing, -padding * 2f - (y + 1) * spacing, 0f));
 
                     if (++count >= maxItemCount)

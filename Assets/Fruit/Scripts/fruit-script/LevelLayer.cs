@@ -68,5 +68,6 @@ public class LevelLayer : MonoBehaviour
 		card.pages = pages;
 		card.initLevel ();
         		
+		DontDestroyOnLoad(transform.gameObject);
 	}
 }

@@ -9,9 +9,9 @@ public class GameWinLayer : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-//		_nowMode=PlayerPrefs.GetInt("NowMode");
-//		_nowPlay=PlayerPrefs.GetInt("NowPlay");
-//		init (PlayerPrefs.GetInt ("result"));
+		_nowMode=PlayerPrefs.GetInt("NowMode");
+		_nowPlay=PlayerPrefs.GetInt("NowPlay");
+		init (PlayerPrefs.GetInt ("result"));
 	}
 	
 	public void init (int result)
@@ -35,7 +35,7 @@ public class GameWinLayer : MonoBehaviour
 		//清除计数器记录内容
 		Globe.errorCount = 3;
 		Globe.sameSize.Clear ();
-		PlayerPrefs.SetInt(Globe.Compare (_nowMode) + _nowPlay,result);
+		PlayerPrefs.SetInt("star-"+Globe.Compare (_nowMode) + _nowPlay,result);
 		PlayerPrefs.DeleteKey("result");
 
 		
@@ -74,11 +74,14 @@ public class GameWinLayer : MonoBehaviour
 			Transform transStar = transform.FindChild("Show").FindChild("Stars");
 			
 			for (int i = 0; i < transStar.GetChildCount(); i++) {
-				transStar.GetChild (i).gameObject.SetActive (false);
+				if (i<PlayerPrefs.GetInt("result")) {
+//					transStar.GetChild (i).gameObject.SetActive (true);
+					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=true;
+				}else{
+//					transStar.GetChild (i).gameObject.SetActive (false);
+					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=false;
+				}
 			}
-			for (int i = 0; i < PlayerPrefs.GetInt ("result"); i++) {
-				transStar.GetChild (i).gameObject.SetActive (true);
-			}		
 			
 		} else {
 			int score = PlayerPrefs.GetInt (lastlevelName);
