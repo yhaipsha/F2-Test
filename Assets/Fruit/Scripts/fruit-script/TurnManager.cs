@@ -41,6 +41,7 @@ public class TurnManager : MonoBehaviour
 //			PlayerPrefs.SetInt("result",result);
 			PlayerPrefs.DeleteKey("turn_go_over");
 			Application.LoadLevel("GameUpshot");			
+			PlayerPrefs.Save();
 		}
 	}
 	

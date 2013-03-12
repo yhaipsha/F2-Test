@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Fruit\Scripts\ArrayRandom.cs" />
+     <Compile Include="Assets\Fruit\Scripts\Export.cs" />
      <Compile Include="Assets\Fruit\Scripts\Game\RegexUtil.cs" />
      <Compile Include="Assets\Fruit\Scripts\Game\SystemData.cs" />
      <Compile Include="Assets\Fruit\Scripts\LitJson\IJsonWrapper.cs" />

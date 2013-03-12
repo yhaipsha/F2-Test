@@ -48,7 +48,13 @@ public class GotoScene : MonoBehaviour
 			break;
 			
 		 case "-Replay":
-//			this.SendMessageUpwards ("cleanLevels");			
+//			int _nowMode = PlayerPrefs.GetInt("NowMode");
+//			int _nowPlay = PlayerPrefs.GetInt("NowPlay");
+//			print (_nowMode+"??"+_nowPlay);
+//			FruitMain f = new FruitMain ();
+//			StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
+			
+//			yield return new WaitForSecond(0.3f);
 			Application.LoadLevel ("Game2");
 			break;
 			

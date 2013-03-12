@@ -24,11 +24,34 @@ public class GameWinLayer : MonoBehaviour
 //			showResultSprite (true, "p-win");
 //			break;
 //		}
+		
+				string lastlevelName = Globe.Compare(_nowMode) + _nowPlay;
+		print ("lastLevelName = " + lastlevelName);
+		
 		if (result<=0) {
 			showResultSprite (false, "p-failed");
+			
+			int score = PlayerPrefs.GetInt (lastlevelName);
+			PlayerPrefs.SetInt (lastlevelName, score > 0 ? score : 0);
+			print ("The current level:"+lastlevelName+"="+PlayerPrefs.GetInt (lastlevelName));
+			
+			print (PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay)));
 		}
 		else		{
 			showResultSprite (true, "p-win");
+			
+			Transform transStar = transform.FindChild("Show").FindChild("Stars");
+			
+			for (int i = 0; i < transStar.GetChildCount(); i++) {
+				if (i<PlayerPrefs.GetInt("result")) {
+//					transStar.GetChild (i).gameObject.SetActive (true);
+					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=true;
+				}else{
+//					transStar.GetChild (i).gameObject.SetActive (false);
+					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=false;
+				}
+			}
+			PlayerPrefs.SetInt (lastlevelName, PlayerPrefs.GetInt("result"));
 		}
 		
 		
@@ -57,8 +80,7 @@ public class GameWinLayer : MonoBehaviour
 		print (spriteName);
 		sp.MakePixelPerfect ();
 		
-		string lastlevelName = Globe.jsonLableNames [PlayerPrefs.GetInt ("NowMode") - 1] + PlayerPrefs.GetInt ("NowPlay");
-		print ("lastLevelName = " + lastlevelName);
+
 		
 		
 		//保留最好的成绩星
@@ -71,25 +93,27 @@ public class GameWinLayer : MonoBehaviour
                 );
 			}
 			
-			Transform transStar = transform.FindChild("Show").FindChild("Stars");
-			
-			for (int i = 0; i < transStar.GetChildCount(); i++) {
-				if (i<PlayerPrefs.GetInt("result")) {
-//					transStar.GetChild (i).gameObject.SetActive (true);
-					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=true;
-				}else{
-//					transStar.GetChild (i).gameObject.SetActive (false);
-					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=false;
-				}
-			}
-			
+//			Transform transStar = transform.FindChild("Show").FindChild("Stars");
+//			
+//			for (int i = 0; i < transStar.GetChildCount(); i++) {
+//				if (i<PlayerPrefs.GetInt("result")) {
+////					transStar.GetChild (i).gameObject.SetActive (true);
+//					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=true;
+//				}else{
+////					transStar.GetChild (i).gameObject.SetActive (false);
+//					transStar.GetChild(i).GetComponent<UISlicedSprite>().enabled=false;
+//				}
+//			}
+//			PlayerPrefs.SetInt (lastlevelName, PlayerPrefs.GetInt("result"));
 		} else {
-			int score = PlayerPrefs.GetInt (lastlevelName);
-			PlayerPrefs.SetInt (lastlevelName, score > 0 ? score : 0);
-			print ("The current level:"+PlayerPrefs.GetInt (lastlevelName));
+//			int score = PlayerPrefs.GetInt (lastlevelName);
+//			PlayerPrefs.SetInt (lastlevelName, score > 0 ? score : 0);
+//			print ("The current level:"+lastlevelName+"="+PlayerPrefs.GetInt (lastlevelName));
+//			
+//			print (PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay)));
 		}
 		
-		PlayerPrefs.SetInt (lastlevelName, PlayerPrefs.GetInt("result"));
+		
 		
 //		Globe.sameSize.Clear();
 //		Globe.differentSize.Clear();

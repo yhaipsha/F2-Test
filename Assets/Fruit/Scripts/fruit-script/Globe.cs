@@ -62,7 +62,7 @@ public class Globe
 	public static Dictionary<string,int> sameSize;
 	public static Dictionary<string,int> differentSize;
 	public static Dictionary<string,GameObject> stayObject;
-	public static  string[] jsonLableNames = new string[]{"first","second","third"};
+	static  string[] jsonLableNames = new string[]{"first","second","third"};
 	public static string Compare (int mode)
 	{
 		string star = string.Empty;

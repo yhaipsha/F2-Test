@@ -14,6 +14,28 @@ public class SelectedLevel : MonoBehaviour
 	private int _nowPlay = 1;
 	private int _nowMode = 1;
 	
+	void OnClick ()
+	{
+		PlayerPrefs.SetInt ("NowPlay", _nowPlay);
+		Application.LoadLevel ("Game2");	
+		
+	}
+	
+	void OnPress (bool isPressed)
+	{
+		UILabel lblLevelName = transform.FindChild ("LblTitle").GetComponent<UILabel> ();
+		_nowPlay = int.Parse (lblLevelName.text.Trim ());
+		FruitMain f = new FruitMain ();
+		StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
+		
+		UISlicedSprite ssp = transform.FindChild ("SpriteLevel0").GetComponent<UISlicedSprite> ();
+		if (isPressed && ssp.spriteName == "level1") {
+			ssp.spriteName = "level2";
+			ssp.MakePixelPerfect ();
+		} 
+		
+	}
+	
 	int createAtlases2 (List<string[]> item)
 	{
 		if (item == null) {
@@ -74,40 +96,5 @@ public class SelectedLevel : MonoBehaviour
 		return cardCount;
 	}
 
-	void OnClick ()
-	{
-		UILabel lblLevelName = transform.FindChild ("LblTitle").GetComponent<UILabel> ();
-		_nowPlay = int.Parse (lblLevelName.text.Trim ());
-		PlayerPrefs.SetInt ("NowPlay", _nowPlay);
-//		FruitMain f = new FruitMain ();
-//		StartCoroutine(f.getLevels(Globe.Compare( _nowMode)+","+_nowPlay));
 
-
-		string time = string.Empty;Application.LoadLevel ("Game2");
-		switch (_nowMode) {
-		case 1:
-			Globe.errorCount = 3;
-			time = Globe.errorCount.ToString ();			
-//			cards = createAtlases (PlayerPrefs.GetString ("first" + (_nowPlay - 1)).Split (','));
-			Globe.cardSize = createAtlases3 (Globe.askbox [_nowPlay - 1]);						
-			print ("current level is " + _nowPlay + " from 1 ,and findCount = " + Globe.findCount);			
-			break;
-		case 2:
-			Globe.errorCount = 1;
-			time = Globe.errorCount.ToString ();	//每一个关卡 允许错误次数
-//			cards = createAtlases (PlayerPrefs.GetString ("second" + (_nowPlay - 1)).Split (','));
-			Globe.cardSize = createAtlases3 (Globe.askbox2 [_nowPlay - 1]);					
-			break;
-		case 3:
-			time = "0:30";//30
-//			cards = createAtlases (PlayerPrefs.GetString ("third" + (_nowPlay - 1)).Split (','));
-			Globe.cardSize = createAtlases3 (Globe.askbox3 [_nowPlay - 1]);					
-			break;
-			
-		}
-		print (Globe.cardSize);
-		DontDestroyOnLoad(transform.gameObject);
-		
-		
-	}
 }

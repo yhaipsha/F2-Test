@@ -93,22 +93,22 @@ public class FruitMain : MonoBehaviour
 			#endregion
 			#region 数据存放内存
 			
-			foreach (string item in sd.arrInt){
+			foreach (string item in sd.arrInt) {
 				Globe.askbox.Add (item.Split (','));		
 			}
-			foreach (string item in sd.secondInt){	
+			foreach (string item in sd.secondInt) {	
 				Globe.askbox2.Add (item.Split (','));			
 			}
 			foreach (string item in sd.thirdInt) {	
 				Globe.askbox3.Add (item.Split (','));
 			}
 			#endregion
-//			PlayerPrefs.DeleteAll();
+//			PlayerPrefs.DeleteAll ();
 //			StartCoroutine ("GetTwitterUpdate");     
-			print ("loading... is over !level1=" + Globe.askbox.Count+";level2="+ Globe.askbox2.Count+";level3="+Globe.askbox3.Count);
+			print ("loading... is over !level1=" + Globe.askbox.Count + ";level2=" + Globe.askbox2.Count + ";level3=" + Globe.askbox3.Count);
 		}
 	}
-		/**/
+	/**/
 	IEnumerator GetTwitterUpdate ()//IEnumerator
 	{
 		WWW www = new WWW (Globe.jsonURL);
@@ -145,31 +145,21 @@ public class FruitMain : MonoBehaviour
 		}
 	}
 	
-	public IEnumerator getLevels(string modeAndLevel)
+	public IEnumerator getLevels (string modeAndLevel)
 	{
 		WWW www = new WWW (Globe.levelURL);
 		yield return www;
 		
-		print(modeAndLevel);
+		print (modeAndLevel);
 		JsonData root = JsonMapper.ToObject (www.data);
-		string[] str = modeAndLevel.Split(',');print(root.ToJson());
+		string[] str = modeAndLevel.Split (',');
 		JsonData lf = root ["level"];
-		print (lf ["first"].ToJson ());
-//		JsonData[] arr =JsonMapper.ToObject<JsonData[]> (lf ["first"].ToJson ());
-//		
-//		print (str[0] +str[1]+"------------------"+arr[int.Parse(str[1])-1]);
-//		PlayerPrefs.SetString (str[0] +str[1], arr[int.Parse(str[1])-1].ToString());
+		int _num = int.Parse (str [1]);
+		string _data = lf [str [0]] [_num - 1].ToJson ().Substring (1);
 		
-
-//		for (int i = 0; i < array.Length; i++) {
-//			if (lf [i].IsArray) {
-//				JsonData[] jarr = JsonMapper.ToObject<JsonData[]> (lf [i].ToJson ());
-//				for (int j = 1; j <= jarr.Length; j++) {
-//					PlayerPrefs.SetInt ("star-" + array [i] + j, (int)jarr [j - 1]);
-////					print (("star-" + array [i] + j) + "==" + (int)jarr [j-1]);
-//				}
-//			}
-//		}
+		print ((str [0] + _num) + "??" + _data.Substring (0, _data.Length - 1));		
+		PlayerPrefs.SetString (str [0] + _num, _data.Substring (0, _data.Length - 1));
+		
 	}
 
 	public static void WriteJson (string path)

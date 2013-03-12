@@ -37,7 +37,8 @@ public class GamePauseAftermath : MonoBehaviour
 	//			cleanLevel (transLevelPanel);		
 			if (resetPause && transPausePanel != null)
 				resetPanelPause ();			
-		}else if(transform.parent.name=="DownButtons")
+		}
+		else if(transform.parent.name=="DownButtons")
 		{
 			
 			Application.LoadLevel("Game2");

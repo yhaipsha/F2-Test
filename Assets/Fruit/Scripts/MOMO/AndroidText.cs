@@ -19,9 +19,9 @@ public class AndroidText : MonoBehaviour
 		DeleteFile (Application.persistentDataPath, "FileName.txt");
 
 		//创建文件，共写入3次数据
-		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松MOMO");
-		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松MOMO");
-		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松MOMO");
+		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松0MOMO");
+		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松1MOMO");
+		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松2MOMO");
 
 		//得到文本中每一行的内容
 		infoall = LoadFile (Application.persistentDataPath, "FileName.txt");
@@ -117,10 +117,10 @@ public class AndroidText : MonoBehaviour
 		//用新的皮肤资源，显示中文
 		GUI.skin = skin;
 		//读取文件中的所有内容
-//		foreach (string str in infoall) {
-//			//绘制在屏幕当中，哇咔咔！
-//			GUILayout.Label (str);
-//		}
+		foreach (string str in infoall) {
+			//绘制在屏幕当中，哇咔咔！
+			GUILayout.Label (str);
+		}
 	}
 
 }

@@ -5,6 +5,9 @@
         "third":[0]
     }
 }
+//跨场景。全局变量不好使
+
+//整合 uidraggableCamera.cs and uidraggablePanel.cs 实现用滚动条拖拽相机
 
 
 移动平台中iPhone 或Android请保持的你的图片尺寸 32X32 、32X64 、 128 X 32、 1024 X519、 1024 X1024、 512 X 32

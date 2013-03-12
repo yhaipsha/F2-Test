@@ -94,7 +94,7 @@ public class UIItemCard : MonoBehaviour
             
         }
 
-        UISprite sp = tempObj.transform.FindChild("level1").GetComponent<UISprite>();
+        UISprite sp = tempObj.transform.FindChild("SpriteLevel0").GetComponent<UISprite>();
         sp.spriteName = spriteName;
         sp.MakePixelPerfect();
 
@@ -234,7 +234,7 @@ public class UIItemCard : MonoBehaviour
             {
                 item.enabled = true;
             }
-            if (name == "level1")
+            if (name == "level0")
             {
 
                 foreach (UIButtonTween bt in item.transform.parent.GetComponentsInChildren<UIButtonTween>())
