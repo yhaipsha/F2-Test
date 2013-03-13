@@ -83,7 +83,7 @@ public class TurnManager : MonoBehaviour
 	}
 	void FixedUpdate()
 	{
-		print (PlayerPrefs.GetInt ("turn_go_over") );
+//		print (PlayerPrefs.GetInt ("turn_go_over") );
 		toPanelWin ();
 	}
 		
