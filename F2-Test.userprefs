@@ -1,14 +1,6 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Fruit/Scripts/fruit-script/GamePlayLayer.cs">
-    <Files>
-      <File FileName="Assets/Fruit/Scripts/fruit-script/GameWinLayer.cs" Line="36" Column="86" />
-      <File FileName="Assets/Fruit/Scripts/fruit-script/GotoScene.cs" Line="46" Column="46" />
-      <File FileName="Assets/Fruit/Scripts/fruit-script/GamePlayLayer.cs" Line="119" Column="1" />
-      <File FileName="Assets/Fruit/Scripts/fruit-script/FruitMain.cs" Line="153" Column="1" />
-      <File FileName="Assets/Fruit/Scripts/MOMO/AndroidText.cs" Line="17" Column="1" />
-      <File FileName="Assets/Fruit/Scripts/fruit-script/TurnManager.cs" Line="44" Column="23" />
-    </Files>
+  <MonoDevelop.Ide.Workbench>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -18,8 +10,9 @@
                 <Node name="Data" expanded="True" />
                 <Node name="Scripts" expanded="True">
                   <Node name="fruit-script" expanded="True">
-                    <Node name="GamePlayLayer.cs" selected="True" />
+                    <Node name="FruitMain.cs" selected="True" />
                   </Node>
+                  <Node name="Game" expanded="True" />
                   <Node name="LitJson" expanded="True" />
                   <Node name="MOMO" expanded="True" />
                 </Node>
@@ -71,8 +64,6 @@
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="/Users/jishu-001/Desktop/Unity3D/F2-Test/Assets/Fruit/Scripts/fruit-script/UIItemCard.cs" line="97" />
-      <Breakpoint file="/Users/jishu-001/Desktop/Unity3D/F2-Test/Assets/Fruit/Scripts/fruit-script/GamePlayLayer.cs" line="19" />
-      <Breakpoint file="/Users/jishu-001/Desktop/Unity3D/F2-Test/Assets/Fruit/Scripts/fruit-script/GamePlayLayer.cs" line="116" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

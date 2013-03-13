@@ -10,6 +10,7 @@ public class LevelLayer : MonoBehaviour
 		levelOffsetGo = transform.FindChild ("Panel-sprite").FindChild ("Offset");
 		init ();
 		itemCardLayer ();
+		
 	}
 	Transform levelOffsetGo ;
 	void init ()
@@ -68,6 +69,6 @@ public class LevelLayer : MonoBehaviour
 		card.pages = pages;
 		card.initLevel ();
         		
-		DontDestroyOnLoad(transform.gameObject);
+//		DontDestroyOnLoad(transform.gameObject);
 	}
 }

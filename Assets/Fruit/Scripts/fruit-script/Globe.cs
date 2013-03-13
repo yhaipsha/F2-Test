@@ -9,12 +9,13 @@ public class HelpFruit
 	public  int list_offset;
 	public  string list_go_name;
 }
+
 [System.Serializable]
 public class FruitBrand
 {
-	public int errorCount=0;
-	public int cardSize=0;
-	public int cardFindSize=0;
+	public int errorCount = 0;
+	public int cardSize = 0;
+	public int cardFindSize = 0;
 }
 
 public class Globe
@@ -27,16 +28,15 @@ public class Globe
 	public static string jsonURL = "file://" + Application.dataPath + @"/Fruit/Data/FruitJson.json";
 	public static string levelURL = "file://" + Application.dataPath + @"/Fruit/Data/FruitLevel.json";
 	public static string assetURL = "file://" + Application.dataPath + @"/Fruit/Data/SystemData.assetbundle";
-	public static string[] stayNames=new string[]{"Offset","GameWindow"};
+	public static string[] stayNames = new string[]{"Offset","GameWindow"};
 	public static HelpFruit helper;
-	public static Transform thisPanel;
+	public static Transform thisPanel = null;
 	public static string tmpString;
 	public static bool punish;
-	
 	public static Vector3 gamePause = new Vector3 (0, -680f, -5f);
 	public static Vector3 cardPanel1 = new Vector3 (-256f, 128f, -4f);
 	public static Vector3 cardPanel2 = new Vector3 (-330f, 128f, -4f);
-	public static Vector3 cardPanel3 = new Vector3 (-410f, 128f, -4f);
+	public static Vector3 cardPanel3 = new Vector3 (-410f, 165f, -4f);
 	public static Vector3 cardPanel4 = new Vector3 (-410f, 220f, -4f);//220
 	//随机分配卡牌
 	public static string[] boxes = {"boxfind1","boxfind2","boxfind3","boxfind4"
@@ -47,15 +47,14 @@ public class Globe
 	//在游戏中储存卡牌
 	public static int[] box;			//随机数组
 	public static List<string[]> askbox;	//每个关卡数组
-	public static List<string[]> askbox2;	
+	public static List<string[]> askbox2;
 	public static List<string[]> askbox3;
 	public static List<string> askBox;
-	
 	public static List<string> askatlases;//卡牌头 && lastSprite
 	public static List<string> cards;		//卡牌
 	public static int findCount;
-	public static int errorCount=0;
-	public static int cardSize=0;
+	public static int errorCount = 0;
+	public static int cardSize = 0;
 	public static List<GameObject> tempGameObject;
 	
 	//public static List<int>sameSize ; //=new List<int>()
@@ -63,18 +62,19 @@ public class Globe
 	public static Dictionary<string,int> differentSize;
 	public static Dictionary<string,GameObject> stayObject;
 	static  string[] jsonLableNames = new string[]{"first","second","third"};
+
 	public static string Compare (int mode)
 	{
 		string star = string.Empty;
 		switch (mode) {
 		case 1:
-			star = jsonLableNames[0];
+			star = jsonLableNames [0];
 			break;
 		case 2:
-			star =  jsonLableNames[1];
+			star = jsonLableNames [1];
 			break;
 		case 3:
-			star =  jsonLableNames[2];
+			star = jsonLableNames [2];
 			break;
 		}
 		return star;
@@ -89,6 +89,7 @@ public class Globe
 		
 		return 	gos;		
 	}
+
 	public static  GameObject[] getPanelObject (Transform ts, string[] names)
 	{		
 		GameObject[] gos = new GameObject[names.Length];

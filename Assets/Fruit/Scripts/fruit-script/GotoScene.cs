@@ -55,13 +55,13 @@ public class GotoScene : MonoBehaviour
 //			StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
 			
 //			yield return new WaitForSecond(0.3f);
-			Application.LoadLevel ("Game2");
+			Application.LoadLevel ("Loading");
 			break;
 			
 		case "-Next":
 //			this.SendMessageUpwards ("cleanLevels");	
 			PlayerPrefs.SetInt("NowPlay",PlayerPrefs.GetInt("NowPlay")+1);
-			Application.LoadLevel ("Game2");
+			Application.LoadLevel ("Loading");
 			break;
 		}
 

@@ -14,10 +14,7 @@ public class GamePlayLayer : MonoBehaviour
 	void Start ()
 	{
 		//		Globe.sameSize = new System.Collections.Generic.Dictionary<string, int> ();
-		//		createButtons ();
-		
-		FruitMain f = new FruitMain ();
-		StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
+		//		createButtons ();		
 		OnLayer ();
 	}
 //	void Update()
@@ -29,6 +26,14 @@ public class GamePlayLayer : MonoBehaviour
 	void Awake ()
 	{
 //		OnLayer ();
+	}
+	void OnEnable() {
+				//-----------当前关卡
+		_nowPlay = PlayerPrefs.GetInt ("NowPlay");
+		_nowMode = PlayerPrefs.GetInt ("NowMode");
+		
+		// the data for reset gameplay
+		
 	}
 
 	public void cleanButtons ()
@@ -46,9 +51,7 @@ public class GamePlayLayer : MonoBehaviour
 	{
 //		transform.FindChild("Label").GetComponent<UILabel>().text=Globe.cardSize.ToString();
 //		print (Globe.cardSize);
-		//-----------当前关卡
-		_nowPlay = PlayerPrefs.GetInt ("NowPlay");
-		_nowMode = PlayerPrefs.GetInt ("NowMode");
+
 		
 		
 		initStar ();	
@@ -74,7 +77,7 @@ public class GamePlayLayer : MonoBehaviour
 			break;
 			
 		}
-		Globe.cardSize = createAtlases3 ();	
+		Globe.cardSize = createAtlases3 ();	//print(Globe.cardSize);
 		initTitle (Globe.errorCount.ToString());
 
 		
@@ -112,11 +115,9 @@ public class GamePlayLayer : MonoBehaviour
 	int createAtlases3 ()
 	{
 		print ("current Level is " + _nowPlay + "; current Mode is " + _nowMode);
-		string[] item = null;
-		item = PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay),"1,1").Split(',');
-		if(!PlayerPrefs.HasKey(Globe.Compare( _nowMode)+(_nowPlay)))
-			print("null this");
-		print (PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay)));
+		string[] item = PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay),"1,1").Split(',');
+//		if(!PlayerPrefs.HasKey(Globe.Compare( _nowMode)+(_nowPlay)))
+//			return 0;
 		//头图片个数  选取数组最后一个Globe.askbox
 		int maxCard = item.Length;
 		int cardCount = 0;

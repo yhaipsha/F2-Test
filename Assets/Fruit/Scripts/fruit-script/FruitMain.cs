@@ -127,7 +127,7 @@ public class FruitMain : MonoBehaviour
             yield break;
         }*/
 
-		JsonData root = JsonMapper.ToObject (www.data);
+		JsonData root = JsonMapper.ToObject (www.text);
 
 		JsonData lf = root ["level"];
 		ICollection keyss = (lf as IDictionary).Keys;
@@ -144,14 +144,23 @@ public class FruitMain : MonoBehaviour
 			}
 		}
 	}
+	public static string file_text=string.Empty;
+	public IEnumerator getJsonText (string str)//IEnumerator
+	{
+		WWW www = new WWW (Globe.jsonURL);
+		yield return www;
+		if (www.isDone) {
+			file_text = www.text;
+		}
+	}
 	
 	public IEnumerator getLevels (string modeAndLevel)
 	{
 		WWW www = new WWW (Globe.levelURL);
 		yield return www;
 		
-		print (modeAndLevel);
-		JsonData root = JsonMapper.ToObject (www.data);
+		print (modeAndLevel);		
+		JsonData root = JsonMapper.ToObject (www.text);
 		string[] str = modeAndLevel.Split (',');
 		JsonData lf = root ["level"];
 		int _num = int.Parse (str [1]);
@@ -160,13 +169,14 @@ public class FruitMain : MonoBehaviour
 		print ((str [0] + _num) + "??" + _data.Substring (0, _data.Length - 1));		
 		PlayerPrefs.SetString (str [0] + _num, _data.Substring (0, _data.Length - 1));
 		
+//		yield return new AsyncOperation();
 	}
 
 	public static void WriteJson (string path)
 	{
 		WWW www = new WWW (Globe.jsonURL);
 
-		JsonData root = JsonMapper.ToObject (www.data);
+		JsonData root = JsonMapper.ToObject (www.text);
 
 		JsonData lf = root ["level"];//root["level"]["first"];
 		JsonData dt = lf [0] ["star"];

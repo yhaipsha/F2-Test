@@ -14,14 +14,14 @@ public class AndroidText : MonoBehaviour
 
 	void Start ()
 	{
-		print (Application.persistentDataPath);
+//		print (Application.persistentDataPath);
 		//删除文件
 		DeleteFile (Application.persistentDataPath, "FileName.txt");
 
 		//创建文件，共写入3次数据
-		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松0MOMO");
+//		CreateFile (Application.persistentDataPath, "FileName.txt", PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay),"1,1"));
 		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松1MOMO");
-		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松2MOMO");
+//		CreateFile (Application.persistentDataPath, "FileName.txt", "宣雨松2MOMO");
 
 		//得到文本中每一行的内容
 		infoall = LoadFile (Application.persistentDataPath, "FileName.txt");
@@ -79,7 +79,9 @@ public class AndroidText : MonoBehaviour
 			//路径与名称未找到文件则直接返回空
 			return null;
 		}
-
+		
+		
+		
 		string line;
 		ArrayList arrlist = new ArrayList ();
 		while ((line = sr.ReadLine()) != null) {

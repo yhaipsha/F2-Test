@@ -20,14 +20,14 @@ public class DecorateNextGame : MonoBehaviour
 	void OnClick ()
 	{
 		//next level
-		int _nowMode = PlayerPrefs.GetInt ("NowMode");
+//		int _nowMode = PlayerPrefs.GetInt ("NowMode");
 		int _nowPlay = PlayerPrefs.GetInt ("NowPlay") + 1;		
 		print ("the next level is :" + (_nowPlay));
 		
 		PlayerPrefs.SetInt ("NowPlay", _nowPlay);        
-		FruitMain f = new FruitMain ();
-		StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
-		Application.LoadLevel ("Game2");
+//		FruitMain f = new FruitMain ();
+//		StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
+		Application.LoadLevel ("Loading");
 		
 		//		if (transGamePanel != null)
 		//			transGamePanel.GetComponent<GamePlayLayer> ().initGameWindow (PlayerPrefs.GetInt ("NowPlay"));

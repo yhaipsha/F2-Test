@@ -39,10 +39,10 @@ public class TurnManager : MonoBehaviour
 	{
 		if (PlayerPrefs.GetInt ("turn_go_over") == 1 && clearance) {	
 //			PlayerPrefs.SetInt("result",result);
-			PlayerPrefs.DeleteKey("turn_go_over");
 			Application.LoadLevel("GameUpshot");			
-			PlayerPrefs.Save();
+//			PlayerPrefs.Save();
 		}
+			PlayerPrefs.DeleteKey("turn_go_over");
 	}
 	
 	void doPunish (string name)
@@ -54,22 +54,13 @@ public class TurnManager : MonoBehaviour
 			Globe.tmpString = null;
 			Globe.punish = false;
 		}
+		print (transform.GetChildCount ());
 		if (transform.GetChildCount () <= 2) {		
 			Globe.tmpString = null;
 			Globe.punish = false;
 			setResult (1);
 		}
-		
-//		switch (PlayerPrefs.GetInt("NowMode")) {
-//		case 1:
-//			getTransOfSprite (name).collider.enabled=false;
-//			break;
-//		case 2:
-//		case 3:
-//			
-//			break;
-//		}		
-		
+			
 	}
 	
 	void delayPunish (string name)
@@ -90,7 +81,12 @@ public class TurnManager : MonoBehaviour
 			spHead = transExample.GetComponent<UISlicedSprite> ();	
 		}
 	}
-
+	void FixedUpdate()
+	{
+		print (PlayerPrefs.GetInt ("turn_go_over") );
+		toPanelWin ();
+	}
+		
 	void Update ()
 	{		
 		_mode = PlayerPrefs.GetInt ("NowMode");
@@ -131,7 +127,7 @@ public class TurnManager : MonoBehaviour
 			}
 		}
 		
-		toPanelWin ();
+		
 		
 		//-------------提交提示图片
 //		if (examObj != null && PlayerPrefs.GetInt ("turn_go_over") == 1) {
@@ -189,7 +185,8 @@ public class TurnManager : MonoBehaviour
 
 	void mode2 (string name)
 	{//经典模式-看5秒找相同水果，限错N次";
-		if (Globe.askatlases.Count > 0 && Globe.tmpString != null) {
+		if (Globe.askatlases.Count > 0 && Globe.tmpString != null) 
+		{
 			string spriteName = getSpriteName (name);
 			print (getSpriteName (Globe.tmpString) + "?" + spriteName);
 			if (getSpriteName (Globe.tmpString) == spriteName) {

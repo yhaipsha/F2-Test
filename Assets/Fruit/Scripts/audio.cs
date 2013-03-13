@@ -21,8 +21,8 @@ public class audio : MonoBehaviour {
 			vSlider = music.transform.GetComponent<UISlider>();
 			vSlider.sliderValue = musicVolume;	
 			
-			if(vSlider.name == "Slider-music")
-				music.bypassEffects=true;
+//			if(vSlider.name == "Slider-music")
+//				music.bypassEffects=true;
 			
 //			Debug.Log("?"+vSlider.name);
 		}

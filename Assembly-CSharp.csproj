@@ -18,7 +18,7 @@
 	<DebugType>full</DebugType>
 	<Optimize>false</Optimize>
 	<OutputPath>Temp\bin\Debug\</OutputPath>
-	<DefineConstants>DEBUG;TRACE;UNITY_STANDALONE;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_0;UNITY_4_0;UNITY_STANDALONE_OSX;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
+	<DefineConstants>DEBUG;TRACE;UNITY_WEBPLAYER;WEBPLUG;ENABLE_MICROPHONE;ENABLE_IMAGEEFFECTS;ENABLE_WEBCAM;ENABLE_AUDIO_FMOD;ENABLE_NETWORK;ENABLE_MONO;ENABLE_PHYSICS;ENABLE_TERRAIN;ENABLE_CACHING;ENABLE_SUBSTANCE;ENABLE_GENERICS;ENABLE_CLOTH;ENABLE_MOVIES;ENABLE_AUDIO;ENABLE_WWW;ENABLE_SHADOWS;ENABLE_DUCK_TYPING;UNITY_4_0_0;UNITY_4_0;ENABLE_PROFILER;UNITY_EDITOR;UNITY_TEAM_LICENSE</DefineConstants>
 	<ErrorReport>prompt</ErrorReport>
 	<WarningLevel>4</WarningLevel>
 	<NoWarn>0169</NoWarn>
@@ -45,8 +45,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Fruit\Scripts\ArrayRandom.cs" />
-     <Compile Include="Assets\Fruit\Scripts\Export.cs" />
+     <Compile Include="Assets\Fruit\Scripts\Game\FileUtil.cs" />
+     <Compile Include="Assets\Fruit\Scripts\Game\LitJsonUtil.cs" />
      <Compile Include="Assets\Fruit\Scripts\Game\RegexUtil.cs" />
+     <Compile Include="Assets\Fruit\Scripts\Game\RoleRotationMove.cs" />
      <Compile Include="Assets\Fruit\Scripts\Game\SystemData.cs" />
      <Compile Include="Assets\Fruit\Scripts\LitJson\IJsonWrapper.cs" />
      <Compile Include="Assets\Fruit\Scripts\LitJson\JsonData.cs" />
@@ -56,6 +58,7 @@
      <Compile Include="Assets\Fruit\Scripts\LitJson\JsonWriter.cs" />
      <Compile Include="Assets\Fruit\Scripts\LitJson\Lexer.cs" />
      <Compile Include="Assets\Fruit\Scripts\LitJson\ParserToken.cs" />
+     <Compile Include="Assets\Fruit\Scripts\Loading.cs" />
      <Compile Include="Assets\Fruit\Scripts\MOMO\AndroidText.cs" />
      <Compile Include="Assets\Fruit\Scripts\MOMO\HistoryInit.cs" />
      <Compile Include="Assets\Fruit\Scripts\MOMO\Slide.cs" />

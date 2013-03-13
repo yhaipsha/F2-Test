@@ -4,6 +4,8 @@ using System.Collections.Generic;
 public class SelectedLevel : MonoBehaviour
 {
 	public FruitBrand brand = null;
+	private int _nowPlay = 1;
+	private int _nowMode = 1;
 	
 	//初始化游戏页面 
 	void Start ()
@@ -11,23 +13,21 @@ public class SelectedLevel : MonoBehaviour
 		_nowMode = PlayerPrefs.GetInt ("NowMode");
 	}
 
-	private int _nowPlay = 1;
-	private int _nowMode = 1;
 	
 	void OnClick ()
 	{
 		PlayerPrefs.SetInt ("NowPlay", _nowPlay);
-		Application.LoadLevel ("Game2");	
 		
+		Application.LoadLevel ("Loading");	
+//		Application.LoadLevelAsync("Game2");
 	}
 	
 	void OnPress (bool isPressed)
 	{
 		UILabel lblLevelName = transform.FindChild ("LblTitle").GetComponent<UILabel> ();
 		_nowPlay = int.Parse (lblLevelName.text.Trim ());
-		FruitMain f = new FruitMain ();
-		StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
 		
+		PlayerPrefs.DeleteKey(Globe.Compare (_nowMode) + _nowPlay);//print(Globe.Compare (_nowMode) + _nowPlay);
 		UISlicedSprite ssp = transform.FindChild ("SpriteLevel0").GetComponent<UISlicedSprite> ();
 		if (isPressed && ssp.spriteName == "level1") {
 			ssp.spriteName = "level2";

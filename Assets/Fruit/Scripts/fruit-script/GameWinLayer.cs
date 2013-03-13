@@ -35,7 +35,7 @@ public class GameWinLayer : MonoBehaviour
 			PlayerPrefs.SetInt (lastlevelName, score > 0 ? score : 0);
 			print ("The current level:"+lastlevelName+"="+PlayerPrefs.GetInt (lastlevelName));
 			
-			print (PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay)));
+			//print (PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay)));
 		}
 		else		{
 			showResultSprite (true, "p-win");
