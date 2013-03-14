@@ -16,7 +16,7 @@ public class AndroidText : MonoBehaviour
 	{
 //		print (Application.persistentDataPath);
 		//删除文件
-		DeleteFile (Application.persistentDataPath, "FileName.txt");
+//		DeleteFile (Application.persistentDataPath, "FileName.txt");
 
 		//创建文件，共写入3次数据
 //		CreateFile (Application.persistentDataPath, "FileName.txt", PlayerPrefs.GetString(Globe.Compare( _nowMode)+(_nowPlay),"1,1"));

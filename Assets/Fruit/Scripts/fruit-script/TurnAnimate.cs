@@ -29,7 +29,7 @@ public class TurnAnimate : MonoBehaviour
 	string playOver (string animateName)
 	{
 		if (animateName == "turn_go_over" && PlayerPrefs.GetInt("NowMode") !=1) {
-				PlayerPrefs.SetInt ("turn_go_over",1);
+//				PlayerPrefs.SetInt ("turn_go_over",1);
 				SendMessageUpwards("doPunish",transform.name);			
 		}
 		else if(animateName =="turn_back_over")

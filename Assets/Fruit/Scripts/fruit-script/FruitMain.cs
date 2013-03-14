@@ -169,7 +169,7 @@ public class FruitMain : MonoBehaviour
 		print ((str [0] + _num) + "??" + _data.Substring (0, _data.Length - 1));		
 		PlayerPrefs.SetString (str [0] + _num, _data.Substring (0, _data.Length - 1));
 		
-//		yield return new AsyncOperation();
+		yield return new AsyncOperation();
 	}
 
 	public static void WriteJson (string path)

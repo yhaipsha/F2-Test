@@ -10,15 +10,14 @@ public class FileUtil  {
 		StreamWriter sw;
 		FileInfo t = new FileInfo (path + "//" + name);
 		if (!t.Exists) {
-
 			//如果此文件不存在则创建
-			sw = t.CreateText ();
-
+			sw = t.CreateText();
+			
 		} else {
 			//如果此文件存在则打开
 			sw = t.AppendText ();
 		}
-
+//		sw.Encoding.
 		//以行的形式写入信息
 		sw.WriteLine (info);
 		//关闭流
@@ -27,9 +26,14 @@ public class FileUtil  {
 		sw.Dispose ();
 	} 
 	
-	void DeleteFile (string path, string name)
+	public static void DeleteFile (string path, string name)
 	{
-		File.Delete (path + "//" + name);
+		 File.Delete (path);
+	}
+	
+	public static bool isExists(string path)
+	{
+		return File.Exists(path);
 	}
 	
 	public static string LoadFile (string path, string name)

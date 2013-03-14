@@ -15,6 +15,8 @@ public class GamePlayLayer : MonoBehaviour
 	{
 		//		Globe.sameSize = new System.Collections.Generic.Dictionary<string, int> ();
 		//		createButtons ();		
+//		FruitMain fm = Camera.mainCamera.GetComponent<FruitMain>();
+//		fm.getLevels(Globe.Compare(_nowMode) + "," + _nowPlay);
 		OnLayer ();
 	}
 //	void Update()
@@ -35,7 +37,7 @@ public class GamePlayLayer : MonoBehaviour
 		// the data for reset gameplay
 		
 	}
-
+	
 	public void cleanButtons ()
 	{
 		if (goButtons != null)
@@ -317,6 +319,7 @@ public class GamePlayLayer : MonoBehaviour
 
 
 	}
+	
 
 	void addGrid (GameObject go, int cellWidth)
 	{

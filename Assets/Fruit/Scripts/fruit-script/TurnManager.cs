@@ -40,14 +40,14 @@ public class TurnManager : MonoBehaviour
 		if (PlayerPrefs.GetInt ("turn_go_over") == 1 && clearance) {	
 //			PlayerPrefs.SetInt("result",result);
 			Application.LoadLevel("GameUpshot");			
+			PlayerPrefs.DeleteKey("turn_go_over");
 //			PlayerPrefs.Save();
 		}
-			PlayerPrefs.DeleteKey("turn_go_over");
+			
 	}
 	
 	void doPunish (string name)
-	{
-		
+	{		
 		if (name != Globe.tmpString && Globe.punish) {
 			Destroy (getTransOfSprite (name).gameObject);	
 			Destroy (getTransOfSprite (Globe.tmpString).gameObject);				
@@ -263,17 +263,17 @@ public class TurnManager : MonoBehaviour
 			
 			if (state == 1) {
 				_trans.animation.Play ("TurnGo");
-				_trans.collider.enabled = false;
+//				_trans.collider.enabled = false;
 			} else if (state == 2) {
 				_trans.animation.Stop ();
 				if (_mode != 1) {
-					_trans.collider.enabled = true;
+//					_trans.collider.enabled = true;
 				}
 			} else if (state == -1) {
 				_trans.animation ["TurnGo"].time = 0;
 				_trans.animation.Play ("TurnGo");
 			} else if (state == 3) {
-				_trans.collider.enabled = true;
+//				_trans.collider.enabled = true;
 			}
 		}		
 		
