@@ -1,6 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Fruit/Scripts/fruit-script/SelectedLevel.cs">
+    <Files>
+      <File FileName="Assets/Fruit/Scripts/fruit-script/LevelLayer.cs" Line="1" Column="1" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/SelectedLevel.cs" Line="22" Column="5" />
+      <File FileName="Assets/Fruit/Scripts/Loading.cs" Line="55" Column="24" />
+      <File FileName="Assets/Fruit/Scripts/audio.cs" Line="1" Column="1" />
+      <File FileName="Assets/Fruit/Scripts/fruit-script/FruitMain.cs" Line="1" Column="1" />
+    </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
@@ -10,7 +17,7 @@
                 <Node name="Data" expanded="True" />
                 <Node name="Scripts" expanded="True">
                   <Node name="fruit-script" expanded="True">
-                    <Node name="FruitMain.cs" selected="True" />
+                    <Node name="SelectedLevel.cs" selected="True" />
                   </Node>
                   <Node name="Game" expanded="True" />
                   <Node name="LitJson" expanded="True" />
