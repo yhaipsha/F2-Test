@@ -37,10 +37,10 @@
     <Reference Include="System.XML" />
 	<Reference Include="System.Core" />
 	<Reference Include="UnityEngine">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
@@ -241,10 +241,10 @@
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Colored (SoftClip).shader" />
      <None Include="Assets\Fruit\Data\FruitJson.txt" />
      <None Include="Assets\NGUI\Examples\Models\Orc Armor\Orc Armor.shader" />
- <Reference Include="Assets\Fruit\Plugins\Mono.Data.Sqlite">
+ <Reference Include="Mono.Data.Sqlite">
  <HintPath>Assets\Fruit\Plugins\Mono.Data.Sqlite.dll</HintPath>
  </Reference>
- <Reference Include="Assets\Fruit\Plugins\System.Data">
+ <Reference Include="System.Data">
  <HintPath>Assets\Fruit\Plugins\System.Data.dll</HintPath>
  </Reference>
   </ItemGroup>
