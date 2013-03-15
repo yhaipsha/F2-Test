@@ -29,15 +29,12 @@ public class Loading : MonoBehaviour
 		
 		
 //		StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
-		string xx = Globe.levelURL.Replace ("file://", "");
-		print ("重启 loading is over!" + xx);
+
 		
 //		FruitMain fm = transform.GetComponent<FruitMain>();
 //		StartCoroutine(fm.getLevels(_nowModeSign + "," + _nowPlay));
 //		
-//		string strs = FileUtil.LoadFile(xx,"FruitLevel.json");
-//		string str = LitJsonUtil.getLevel(strs,_nowModeSign + "," + _nowPlay);
-//		PlayerPrefs.SetString (_nowModeSign+_nowPlay, str);
+
 		
 		
 		
@@ -49,22 +46,9 @@ public class Loading : MonoBehaviour
 
 	//注意这里返回值一定是 IEnumerator
 	IEnumerator loadScene ()
-	{
-		WWW www = new WWW (Globe.levelURL);
-		yield return www;
-		
+	{		
 		//异步读取场景。
 		//Globe.loadName 就是A场景中需要读取的C场景名称。
-				
-//		print (modeAndLevel);		
-		JsonData root = JsonMapper.ToObject (www.text);
-//		string[] str = modeAndLevel.Split (',');
-		JsonData lf = root ["level"];
-		int _num = _nowPlay;// int.Parse (str [1]);
-		string _data = lf [_nowModeSign] [_num - 1].ToJson ().Substring (1);
-		
-		print ((_nowModeSign + _num) + "??" + _data.Substring (0, _data.Length - 1));		
-		PlayerPrefs.SetString (_nowModeSign + _num, _data.Substring (0, _data.Length - 1));
 
 		async = Application.LoadLevelAsync ("Game2");//Globe.loadName		
 		//读取完毕后返回， 系统会自动进入C场景
@@ -89,8 +73,8 @@ public class Loading : MonoBehaviour
 		if (async != null) {
 			progress = (int)(async.progress * 100);			
 			//有了读取进度的数值，大家可以自行制作进度条啦。
-			Debug.Log ("xuanyusong" + progress);
-			print(async.isDone);
+//			Debug.Log ("xuanyusong" + progress);
+//			print(async.isDone);
 		}else
 		{
 			;

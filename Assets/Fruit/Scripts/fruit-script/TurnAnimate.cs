@@ -6,11 +6,6 @@ public class TurnAnimate : MonoBehaviour
 	public event ProcessDelegate ProcessEvent;
 	public event animatePlayOver EventPlayOver;
 
-	public UISprite sprite;
-	public UISprite spriteBg;
-
-//	private GameObject target;
-	public bool autoReverse = false;
 	UISlicedSprite spHead;
 	// Use this for initialization
 	
@@ -29,7 +24,7 @@ public class TurnAnimate : MonoBehaviour
 	string playOver (string animateName)
 	{
 		if (animateName == "turn_go_over" && PlayerPrefs.GetInt("NowMode") !=1) {
-//				PlayerPrefs.SetInt ("turn_go_over",1);
+				PlayerPrefs.SetInt ("turn_go_over",1);
 				SendMessageUpwards("doPunish",transform.name);			
 		}
 		else if(animateName =="turn_back_over")
@@ -49,24 +44,25 @@ public class TurnAnimate : MonoBehaviour
 
 	void OnClick ()
 	{		
-//		if (sprite != null && spriteBg != null) 
-		{	
+
 			switch (PlayerPrefs.GetInt ("NowMode")) {
 			case 1:
 				SendMessageUpwards ("mode1", transform.name);
 				break;
 			case 2:
-				if (!animation.isPlaying) {
-					SendMessageUpwards ("mode2", transform.name);
-				}else
-					print ("animation is playing");
-				
+				SendMessageUpwards ("mode3", transform.name);
+//				if (!animation.isPlaying) {
+//					SendMessageUpwards ("mode3", transform.name);
+//				}else
+//					print ("animation is playing");				
 				break;
 			case 3:
-				SendMessageUpwards("mode2",transform.name);
+				SendMessageUpwards("mode3",transform.name);
 				break;
-			}		
-		}
+			}
+			
+		PlayerPrefs.DeleteKey("turn_go_over");
+		
 	}
 
 	void Update ()

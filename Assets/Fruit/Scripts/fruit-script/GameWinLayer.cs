@@ -77,7 +77,7 @@ public class GameWinLayer : MonoBehaviour
 		transform.FindChild ("DownButtons").FindChild ("p2Btn-Next").gameObject.SetActive (on);
 		UISprite sp = transform.FindChild ("Show").FindChild ("SlicedSprite").GetComponent<UISlicedSprite> ();
 		sp.spriteName = spriteName;
-		print (spriteName);
+//		print (spriteName);
 		sp.MakePixelPerfect ();
 		
 

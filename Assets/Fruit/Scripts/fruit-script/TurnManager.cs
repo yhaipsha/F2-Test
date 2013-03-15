@@ -29,38 +29,73 @@ public class TurnManager : MonoBehaviour
 //	bool punish = false;
 //	TurnAnimate ta;
 	
-	bool clearance=false;
-	void setResult(int result)
-	{
-		PlayerPrefs.SetInt("result",result);
-		clearance=true;
+	bool clearance = false;
+
+	void setResult (int result)
+	{	
+		PlayerPrefs.SetInt ("result", result);
+		clearance = true;
+		
 	}
+
 	void toPanelWin ()
 	{
-		if (PlayerPrefs.GetInt ("turn_go_over") == 1 && clearance) {	
-//			PlayerPrefs.SetInt("result",result);
-			Application.LoadLevel("GameUpshot");			
-			PlayerPrefs.DeleteKey("turn_go_over");
-//			PlayerPrefs.Save();
-		}
+		bool toWin = false;
+		if (transform.GetChildCount () < 2 && PlayerPrefs.GetInt ("NowMode") != 1) {		
 			
+			for (int i = 0; i < 2; i++) {
+				try {
+						toWin = !transform.GetChild (i).FindChild ("Sprite-boxBg").GetComponent<UISlicedSprite> ().enabled;
+					
+				} catch (System.Exception ex) {
+					print (ex.Message);
+					Globe.punish = false;
+					setResult (1);
+				}
+			}
+			print (toWin);
+			if (toWin) {
+				Globe.tmpString = null;
+				Globe.punish = false;
+				setResult (1);
+			}
+			
+		}
+		
+		if (PlayerPrefs.GetInt ("turn_go_over") == 1 && clearance) {			
+//			if (toWin) 
+			{
+				Application.LoadLevel ("GameUpshot");			
+				PlayerPrefs.DeleteKey ("turn_go_over");				
+			}
+//			PlayerPrefs.Save();
+		} else if (clearance && Globe.errorCount <= 0) {
+			Application.LoadLevel ("GameUpshot");			
+			PlayerPrefs.DeleteKey ("turn_go_over");	
+		}
 	}
 	
 	void doPunish (string name)
 	{		
-		if (name != Globe.tmpString && Globe.punish) {
-			Destroy (getTransOfSprite (name).gameObject);	
-			Destroy (getTransOfSprite (Globe.tmpString).gameObject);				
-			Globe.tmpString = null;
-			Globe.punish = false;
-		}
-		print (transform.GetChildCount ());
-		if (transform.GetChildCount () <= 2) {		
-			Globe.tmpString = null;
-			Globe.punish = false;
-			setResult (1);
-		}
+//		if (name != Globe.tmpString && Globe.punish) 
+//		{
+//			Destroy (getTransOfSprite (name).gameObject);	
+//			Destroy (getTransOfSprite (Globe.tmpString).gameObject);						
+//		}
+		
+		
+		if (Globe.punish)	
+		{			
+			//使用 askatlases连续销毁
+			for (int i = 0; i < 2; i++) {
+				Destroy (getTransOfSprite (Globe.askatlases [i]).gameObject);
+//				Globe.askatlases.Remove(Globe.askatlases[0]);
+			}
+			Globe.askatlases.Clear();
 			
+			Globe.tmpString = null;
+			Globe.punish = false;
+		}
 	}
 	
 	void delayPunish (string name)
@@ -72,6 +107,12 @@ public class TurnManager : MonoBehaviour
 	void Start ()
 	{							
 		Globe.sameSize = new System.Collections.Generic.Dictionary<string, int> ();
+		
+//		if (Globe.askatlases == null) {
+//			Globe.askatlases = new System.Collections.Generic.List<string> ();
+//		} else
+//			Globe.askatlases.Clear ();
+		
 //		Globe.differentSize = new System.Collections.Generic.Dictionary<string, int> ();
 //		Globe.tempGameObject = new System.Collections.Generic.List<UnityEngine.GameObject> ();
 		
@@ -81,9 +122,11 @@ public class TurnManager : MonoBehaviour
 			spHead = transExample.GetComponent<UISlicedSprite> ();	
 		}
 	}
-	void FixedUpdate()
+
+	void FixedUpdate ()
 	{
 //		print (PlayerPrefs.GetInt ("turn_go_over") );
+//		print (Globe.punish+"<"+clearance+"|"+PlayerPrefs.GetInt ("turn_go_over") );
 		toPanelWin ();
 	}
 		
@@ -182,19 +225,50 @@ public class TurnManager : MonoBehaviour
 		}
 		
 	}
+	
+	void mode3 (string name)
+	{//经典模式-看5秒找相同水果，限错N次"; 	使用闲置变量:askatlases
+		if (Globe.askatlases.Count > 0 ) {//print (name+"??"+Globe.askatlases.Count);
+			string spriteName = getSpriteName (name);
+
+			string lastAtlas = Globe.askatlases [Globe.askatlases.Count - 1];
+			if (getSpriteName (lastAtlas) == spriteName) {
+				Globe.punish = true;
+				turnTo (name, "TurnGo");		
+				Globe.askatlases.Add (name);
+			} else {				
+				turnTo (lastAtlas, "TurnBack");
+				turnTo (name, "TurnBack");	
+				Globe.askatlases.Clear();
+				
+				if (PlayerPrefs.GetInt ("NowMode") == 2) {
+					Globe.errorCount--;
+					UpdateTime (Globe.errorCount);
+					if (Globe.errorCount <= 0) {
+						setResult (0);
+					}
+				}
+			}	
+		}else if (Globe.askatlases.Count == 0) {
+			//记录 the first 精灵
+			Globe.askatlases.Add (name);	
+			turnTo (name, "TurnGo");
+		}		
+	}
 
 	void mode2 (string name)
-	{//经典模式-看5秒找相同水果，限错N次";
-		if (Globe.askatlases.Count > 0 && Globe.tmpString != null) 
-		{
+	{//经典模式-看5秒找相同水果，限错N次"; 	使用闲置变量:askatlases
+		if (Globe.askatlases.Count > 0 && Globe.tmpString != null) {
 			string spriteName = getSpriteName (name);
 			print (getSpriteName (Globe.tmpString) + "?" + spriteName);
 			if (getSpriteName (Globe.tmpString) == spriteName) {
 				Globe.punish = true;
-				turnTo (name, "TurnGo");				
+				turnTo (name, "TurnGo");		
+				Globe.askatlases.Add (name);
 			} else {				
 				turnTo (Globe.tmpString, "TurnBack");
 				turnTo (name, "TurnBack");	
+				Globe.askatlases.Clear ();	
 				
 				if (PlayerPrefs.GetInt ("NowMode") == 2) {
 					Globe.errorCount--;
@@ -206,7 +280,7 @@ public class TurnManager : MonoBehaviour
 				
 				Globe.tmpString = null;
 			}
-			Globe.askatlases.Clear ();	
+			
 		} else {
 			//记录上次精灵
 			Globe.askatlases.Add (name);
@@ -234,6 +308,7 @@ public class TurnManager : MonoBehaviour
 	
 	bool turnTo (string spriteName, string animateName)
 	{
+//		Transform trans =
 		return transform.FindChild (spriteName).animation.Play (animateName);
 //		animation.PlayQueued("TurnBack",QueueMode.PlayNow);
 	}
