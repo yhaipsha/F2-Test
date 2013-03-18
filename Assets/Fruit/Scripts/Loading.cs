@@ -16,29 +16,11 @@ public class Loading : MonoBehaviour
 
 	//读取场景的进度，它的取值范围在0 - 1 之间。
 	int progress = 0;
-	private int _nowPlay = 1;
-	private int _nowMode = 1;
-	private string _nowModeSign = string.Empty;
-
 	void Start ()
 	{
 		//在这里开启一个异步任务，
 		//进入loadScene方法。
-		_nowPlay = PlayerPrefs.GetInt ("NowPlay");
-		_nowModeSign = Globe.Compare (PlayerPrefs.GetInt ("NowMode"));
 		
-		
-//		StartCoroutine (f.getLevels (Globe.Compare (_nowMode) + "," + _nowPlay));
-
-		
-//		FruitMain fm = transform.GetComponent<FruitMain>();
-//		StartCoroutine(fm.getLevels(_nowModeSign + "," + _nowPlay));
-//		
-
-		
-		
-		
-//		FileUtil.CreateFile(Application.persistentDataPath,"android.txt",FruitMain.file_text);
 		StartCoroutine (loadScene ());
 
 	}

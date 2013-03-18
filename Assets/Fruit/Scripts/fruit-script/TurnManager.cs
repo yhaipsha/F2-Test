@@ -134,10 +134,10 @@ public class TurnManager : MonoBehaviour
 	{		
 		_mode = PlayerPrefs.GetInt ("NowMode");
 		if (initialized == 2 && _mode == 1) {			
-			examPlay ();	
-			init (2);
+			
+			init (2);examPlay ();	
 			if (PlayerPrefs.GetInt ("animate_exam_over") == 1) {
-				init (3);
+//				init (3);
 				initialized = 0;//reset initialized
 				PlayerPrefs.DeleteKey ("animate_exam_over");
 				PlayerPrefs.DeleteKey ("cardReady");
@@ -146,10 +146,10 @@ public class TurnManager : MonoBehaviour
 		
 		if (initialized == 2 && _mode == 2) {			
 			initialized = 0;
-			examPlay ();	
+//			examPlay ();	
 			init (2);
 			if (PlayerPrefs.GetInt ("animate_exam_over") == 1) {
-				init (3);
+//				init (3);
 				initialized = 0;
 				PlayerPrefs.DeleteKey ("cardReady");
 			}

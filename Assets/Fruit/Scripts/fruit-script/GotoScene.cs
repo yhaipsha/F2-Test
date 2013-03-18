@@ -19,7 +19,7 @@ public class GotoScene : MonoBehaviour
 	void OnClick ()
 	{
 		string sceneName = transform.name.Substring (transform.name.IndexOf ('-'));
-		print (sceneName);
+//		print (sceneName);
 		switch (sceneName) {
 		case "-Shop":
 			Application.LoadLevel ("Shop");

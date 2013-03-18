@@ -194,5 +194,74 @@ public class GameWinLayer : MonoBehaviour
 		bt.playDirection = AnimationOrTween.Direction.Forward;		
 		
 	}
-
+	
+	
+	void Calculator()
+	{
+		/*
+		if (_nowMode==1) {
+        int stars=_wrongClick ;
+        int coins=_level+stars*5 ;
+//        CCLog("Game win! star is %d, coins is %d",stars,coins);
+//        CCUserDefault *saveGet=CCUserDefault::sharedUserDefault();
+//        CCString *str=CCString::createWithFormat("ModeOne%d",_level);
+        if (saveGet->getIntegerForKey(str->getCString())<stars){
+            saveGet->setIntegerForKey(str->getCString(),stars);
+        }
+        saveGet->setIntegerForKey("StarsNumber",stars);
+        saveGet->setIntegerForKey("GameGolden",saveGet->getIntegerForKey("GameGolden")+coins);
+        saveGet->setIntegerForKey("GoldenNow", coins );
+        saveGet->flush();
+        GameManager::shareGameManager()->runSceneWithID(SCENE_ID_TR_GAMEWIN);
+        //this->showWinOnce();
+    }
+    
+    if (_nowMode==2) {
+        int stars=3-_wrongClickCount ;
+        if (stars<=0) {
+            stars=1;
+        }
+        CCLog("Game win! star is %d, coins is %d",stars,_level+stars*5);
+        int coins=_level+stars*5 ;
+        
+        CCUserDefault *saveGet=CCUserDefault::sharedUserDefault();
+        CCString *str=CCString::createWithFormat("ModeTwo%d",_level);
+        if (saveGet->getIntegerForKey(str->getCString())<stars){
+            saveGet->setIntegerForKey(str->getCString(),stars);
+        }
+        saveGet->setIntegerForKey("GameGolden",saveGet->getIntegerForKey("GameGolden")+coins);
+        saveGet->setIntegerForKey("StarsNumber",stars);
+        saveGet->setIntegerForKey("GoldenNow", coins );
+        saveGet->flush();
+        GameManager::shareGameManager()->runSceneWithID(SCENE_ID_TR_GAMEWIN);
+        //this->showWinOnce();
+        
+    }
+    if (_nowMode==3) {
+        int stars;
+        if (_timeGo>0) {
+            stars=1;
+        }
+        if (_timeGo>10) {
+            stars=2;
+        }
+        if (_timeGo>20) {
+            stars=3;
+        }
+        int coins=stars*5;
+        CCLog("Game win! star is %d, coins is %d",stars,coins);
+        
+        CCUserDefault *saveGet=CCUserDefault::sharedUserDefault();
+        CCString *str=CCString::createWithFormat("ModeThree%d",_level);
+        if (saveGet->getIntegerForKey(str->getCString())<stars){
+            saveGet->setIntegerForKey(str->getCString(),stars);
+        }
+        saveGet->setIntegerForKey("GameGolden",saveGet->getIntegerForKey("GameGolden")+coins);
+        saveGet->setIntegerForKey("StarsNumber",stars);
+        saveGet->setIntegerForKey("GoldenNow", coins );
+        saveGet->flush();
+        GameManager::shareGameManager()->runSceneWithID(SCENE_ID_TR_GAMEWIN);
+        //this->showWinOnce();
+    }*/
+	}
 }

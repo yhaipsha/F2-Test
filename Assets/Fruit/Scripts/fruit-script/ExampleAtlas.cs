@@ -98,6 +98,21 @@ public class ExampleAtlas : MonoBehaviour
 	/// <param name='a'>
 	/// If set to <c>true</c> a.
 	/// </param>
+	
+	void OnCollisionEnter(Collision collision) {
+//		print (collision.transform.name);
+		if (collision.transform.name == "exam") {
+			animation.Stop("Center_UpRight");
+			PlayerPrefs.SetInt ("animate_exam_over",1); 
+		}
+//		foreach (ContactPoint contact in collision.contacts) {
+//			Debug.DrawRay(contact.point, contact.normal, Color.white);
+//		}
+//		if (collision.relativeVelocity.magnitude > 2)
+//			audio.Play();
+
+	}
+	
 	public bool dollyOver(int a)
 	{
 		PlayerPrefs.SetInt("animate_exam_over",1);
